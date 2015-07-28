@@ -6,12 +6,12 @@ gulp.task('default', ['templatecache', 'useref']);
 
 gulp.task('templatecache', function (done) {
     gulp.src('./templates/**/*.html')
-        .pipe(templateCache({standalone: true}))
+        .pipe(templateCache({standalone: true,module: 'templates-product-selector'}))
         .pipe(gulp.dest('./js'))
         .on('end', done);
 });
 
-gulp.task('useref', function (done) {
+gulp.task('useref', ['templatecache'], function (done) {
     var assets = useref.assets();
     gulp.src('./*.html')
         .pipe(assets)
