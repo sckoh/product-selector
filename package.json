@@ -1,0 +1,14 @@
+{
+  "name": "product-selector",
+  "version": "0.0.1",
+  "description": "Product Selector",
+  "dependencies": {
+    "gulp": "^3.9.0"
+  },
+  "devDependencies": {
+    "async": "^1.4.0",
+    "gulp-angular-templatecache": "^1.7.0",
+    "gulp-useref": "^1.2.0",
+    "jshint": "^2.8.0"
+  }
+}

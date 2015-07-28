@@ -1,0 +1,51 @@
+<ion-view title="筛选器">
+    <ion-nav-buttons side="left">
+        <back></back>
+        <button class="button button-clear padding-right" ng-click="cancelSelected()"
+                ng-if="selection.getSelectedIds().length">取消
+        </button>
+        <label class="col-center"
+               ng-if="selection.getSelectedIds().length">{{selection.getSelectedIds().length}}</label>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <md-button class="md-icon-button subheader-icon-button" ng-click="showSearchView()" aria-label="搜索">
+            <md-icon style="color:white" md-svg-icon="img/magnify.svg"></md-icon>
+        </md-button>
+    </ion-nav-buttons>
+    <div class="bar bar-subheader shadow-z1">
+        <div layout>
+            <md-button flex ng-click="showType()" md-no-ink class="subheader-button md-primary"
+                       ng-class="{ 'md-raised' : isTypeShowed}">类型
+            </md-button>
+            <md-button flex ng-click="showYield()" md-no-ink class="subheader-button md-primary"
+                       ng-class="{ 'md-raised' : isYieldShowed}">收益率
+            </md-button>
+            <md-button flex ng-click="showManufacture()" md-no-ink class="subheader-button md-primary"
+                       ng-class="{ 'md-raised' : isManuShowed}">公司
+            </md-button>
+        </div>
+    </div>
+    <div ng-if="isTypeShowed" ng-click="toggleSearch()" class="ng-cloak below-subheader animate-show">
+        <div layout class="search-box" ng-click="$event.stopPropagation();">
+            <div ng-include="'product-selector/type-list-selector.html'" flex></div>
+        </div>
+    </div>
+    <div ng-if="isManuShowed" ng-click="toggleSearch()" class="ng-cloak below-subheader animate-show">
+        <div layout class="search-box" ng-click="$event.stopPropagation();">
+            <div ng-include="'product-selector/manufacture-list-selector.html'" flex></div>
+        </div>
+    </div>
+    <div ng-if="isYieldShowed" ng-click="toggleSearch()" class="ng-cloak below-subheader animate-show">
+        <div layout class="search-box" ng-click="$event.stopPropagation();">
+            <div ng-include="'product-selector/yield-list-selector.html'" flex></div>
+        </div>
+    </div>
+    <ion-content class="has-subheader">
+        <ng-include src="'shared/progress.html'"></ng-include>
+        <div ng-include="'product-selector/product-search-list.html'"></div>
+        <ion-infinite-scroll immediate-check="false" ng-if="productList.length && hasMoreData" on-infinite="loadMore()"
+                             spinner="android">
+        </ion-infinite-scroll>
+    </ion-content>
+    <ui-view name="fab"></ui-view>
+</ion-view>

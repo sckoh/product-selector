@@ -1,0 +1,8 @@
+<ion-list style="background-color: white">
+    <ion-item class="list-item" ng-click="selectManufacture(undefined)">
+        <p ng-class="{'text-primary': search.manufacture == undefined}"> 不限 </p>
+    </ion-item>
+    <ion-item class="list-item" ng-repeat="manufacture in manufactureList" ng-click="selectManufacture(manufacture)">
+        <p ng-class="{'text-primary': search.manufacture == manufacture}"> {{ manufacture.name }} </p>
+    </ion-item>
+</ion-list>

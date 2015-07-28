@@ -1,0 +1,20 @@
+<div layout style="background-color: white">
+    <div flex="50" style="border-right:1px solid #eeeeee">
+        <ion-list>
+            <ion-item class="list-item" ng-click="deselectPeriod()">
+                <p ng-class="{'text-primary': search.period == undefined }"> 不限 </p>
+            </ion-item>
+            <ion-item class="list-item" ng-repeat="period in periods" ng-click="selectPeriod(period)">
+                <p ng-class="{'text-primary': search.period == period}"> {{ period.name }} </p>
+            </ion-item>
+        </ion-list>
+    </div>
+    <div flex="50" ng-show="isYieldValueShowed">
+        <ion-list>
+            <ion-item class="list-item" ng-repeat="yield in yields" ng-click="selectYield(yield)">
+                <p ng-class="{'text-primary': search.yield == yield}"> {{ yield.name }} </p>
+            </ion-item>
+        </ion-list>
+    </div>
+</div>
+

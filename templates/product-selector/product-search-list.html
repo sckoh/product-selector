@@ -1,0 +1,29 @@
+<md-list style="background-color: white">
+    <md-list-item class="md-2-line" ng-repeat="product in productList" md-no-ink>
+        <div class="md-list-item-text" layout flex style="margin-right: 40px;"
+             ng-click="goState('fund-detail', {productId: product.productId});$event.stopPropagation();">
+            <div layout="column" flex="60">
+                <h3 class="line-height-normal">
+                    {{product.fundName}}
+                </h3>
+
+                <p>
+                    {{product.codes}} <span class="padding-left">{{product.mainCodeName}}</span>
+                </p>
+            </div>
+            <div flex="40" layout="column" layout-align="center end" class="text-right">
+                <h3 ng-class="getProfitLossTextColor(product.month3)">
+                    {{product.month3 | number:2}}
+                    <performance-icon value="product.month3"></performance-icon>
+                </h3>
+
+                <p>
+                    近三月
+                </p>
+            </div>
+        </div>
+        <md-checkbox aria-label='选择基金' class="md-secondary"
+                     ng-model="selection.selectedIds[product.productId]" aria-label="选中"
+                     ng-change="selectProduct(product);$event.stopPropagation()"></md-checkbox>
+    </md-list-item>
+</md-list>
