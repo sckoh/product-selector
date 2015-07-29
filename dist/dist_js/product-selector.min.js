@@ -1,9 +1,9 @@
 angular.module('product-selector.controller', [])
-    .controller("ProductSelectorCtrl", ['SubscribeService', 'ChartCenterService', '$timeout', 'MainCodeService', 'ManufactureService',
-        '$ionicFilterBar', '$scope', 'ProductSelectorService', '$ionicHistory', '$state', 'FavouriteService', '$mdToast',
+    .controller("ProductSelectorCtrl", ['MainCodeService', 'ManufactureService',
+        '$ionicFilterBar', '$scope', 'ProductSelectorService', '$ionicHistory', '$state', '$mdToast',
         '$rootScope', 'Selection', 'action',
-        function (SubscribeService, ChartCenterService, $timeout, MainCodeService, ManufactureService, $ionicFilterBar, $scope,
-                  ProductSelectorService, $ionicHistory, $state, FavouriteService, $mdToast, $rootScope, Selection, action) {
+        function (MainCodeService, ManufactureService, $ionicFilterBar, $scope,
+                  ProductSelectorService, $ionicHistory, $state, $mdToast, $rootScope, Selection, action) {
             "use strict";
 
             $scope.loading = true;
